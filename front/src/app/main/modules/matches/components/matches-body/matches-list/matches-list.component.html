@@ -1,0 +1,18 @@
+<div class="matches-list">
+  <div
+    class="matches-list__header">
+    <div>#</div>
+    <div>Name</div>
+    <div>Players</div>
+  </div>
+  <div class="matches-list__body">
+    <div
+      routerLink="{{ match.id }}"
+      *ngFor="let match of response.items; let i = index"
+      class="matches-list__body-match">
+      <div>{{ response.offset + i + 1 }}</div>
+      <div>{{ match.game.name }}</div>
+      <div>{{ match.players | userNames}}</div>
+    </div>
+  </div>
+</div>

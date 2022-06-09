@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import "src/app/styles/colors";
+@import 'app/styles/material-theme';
+@import "src/app/styles/skeleton";
+@import "app/styles/mat-button-spinner";
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined");
+
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: var(--text-primary);
+  background: #303030;
+}
+
+a {
+  color: cornflowerblue;
+}

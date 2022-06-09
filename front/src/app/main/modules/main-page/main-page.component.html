@@ -1,0 +1,16 @@
+<div class="main-page">
+  <h1>Main</h1>
+  <app-stats></app-stats>
+
+  <a routerLink="/matches">ongoing matches</a>
+
+
+  <ng-container *ngIf="jwt$ | async as jwt">
+    <div>Logged in as: {{ jwt.userName }}</div>
+    <a routerLink="/games">Browse games</a>
+    <a routerLink="/lounge">lounge</a>
+    <a
+      *ngIf="jwt.roleId === roleEnum.administrator"
+      routerLink="/users">users</a>
+  </ng-container>
+</div>

@@ -1,0 +1,20 @@
+<div
+  class="users-list">
+  <div class="users-list__header">
+    <div>#</div>
+    <div>Name</div>
+    <div>Role</div>
+    <div>Status</div>
+  </div>
+  <div class="users-list__body">
+    <div
+      *ngFor="let user of usersResponse.items; let i = index"
+      [routerLink]="[user.id]"
+      class="users-list__body-product">
+      <div>{{ usersResponse.offset + i + 1 }}</div>
+      <div>{{ user.userName }}</div>
+      <div>{{ user.roleId | getRole }}</div>
+      <div>{{ user.statusId | getUserStatus  }}</div>
+    </div>
+  </div>
+</div>

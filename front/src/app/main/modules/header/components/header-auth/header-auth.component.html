@@ -1,0 +1,26 @@
+<div class="header-auth">
+  <ng-container *ngIf="isLogged; else notLogged">
+
+    <button
+      (click)="logout()"
+      mat-button>
+      <span>{{ 'Log out' | translate}}</span>
+    </button>
+
+  </ng-container>
+
+  <ng-template #notLogged>
+    <button
+      [routerLink]="'/auth/log-in'"
+      class="header-auth__item"
+      mat-button>{{'Log in' | translate}}
+    </button>
+
+    <button
+      [routerLink]="'/auth/create-account'"
+      mat-button
+      class="header-auth__item"
+    >{{ 'Create account' | translate}}
+    </button>
+  </ng-template>
+</div>

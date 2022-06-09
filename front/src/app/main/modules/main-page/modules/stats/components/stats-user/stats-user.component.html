@@ -1,0 +1,8 @@
+<div class="my-stats-body">
+
+  <div *ngIf="userStats$ | async as userStats">
+    <div>Total user games played: {{ userStats.totalMatches }}</div>
+    <div>Total user won games: {{ userStats.wonMatches }}</div>
+  </div>
+
+</div>

@@ -1,0 +1,12 @@
+<div class="my-match-body">
+  <app-application-error *ngIf="matchError$ | async"></app-application-error>
+  <app-match-skeleton *ngIf="matchLoading$ | async"></app-match-skeleton>
+
+  <app-match-details
+    *ngIf="match$ | async as match"
+    [match]="match"
+    [jwt]="jwt$ | async"
+    [decodedJwt]="decodedJwt$ | async"
+  ></app-match-details>
+
+</div>

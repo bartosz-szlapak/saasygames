@@ -1,0 +1,15 @@
+<div [ngSwitch]="statusCode">
+  <div *ngSwitchCase="404">
+    {{ 'applicationError.Not found' | translate }}
+  </div>
+
+  <div *ngSwitchCase="403">
+    {{ 'applicationError.Access forbidden' | translate }}
+  </div>
+
+  <div *ngSwitchDefault>
+    {{ defaultMessage | translate }}
+  </div>
+
+  <div *ngIf="message">{{ message }}</div>
+</div>

@@ -1,0 +1,11 @@
+<div class="my-game-body">
+  <app-application-error *ngIf="gameError$ | async"></app-application-error>
+  <app-game-skeleton *ngIf="gameLoading$ | async"></app-game-skeleton>
+
+  <app-game-details
+    *ngIf="game$ | async as game"
+    [game]="game"
+    [jwt]="jwt$ | async"
+  ></app-game-details>
+
+</div>

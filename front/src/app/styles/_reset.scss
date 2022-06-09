@@ -1,0 +1,25 @@
+abbr, address, article, aside, audio, b, blockquote, body, caption, cite, code, dd, del, dfn, div, dl, dt, em, fieldset, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, p, pre, q, samp, section, small, span, strong, sub, sup, table, tbody, td, tfoot, th, thead, time, tr, ul, var, video {
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+::selection {
+  background: #dbf1ff;
+  color: $text;
+}
+
+$rem-base: 16px !default;
+
+html {
+  color: $text;
+  font: $rem-base;
+}
+
+html, body {
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+}

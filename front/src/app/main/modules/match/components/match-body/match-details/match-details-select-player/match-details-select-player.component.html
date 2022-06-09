@@ -1,0 +1,17 @@
+<div class="select-player">
+  <mat-radio-group
+    [formControl]="formGroup | getFormControl:'isAi'"
+    aria-label="Select player">
+    <mat-radio-button class="select-player__radio-button" [value]="true">AI</mat-radio-button>
+    <mat-radio-button class="select-player__radio-button" [value]="false">Human</mat-radio-button>
+  </mat-radio-group>
+
+  <mat-radio-group
+    *ngIf="formGroup.controls.isAi.value"
+    [formControl]="formGroup | getFormControl:'aiDifficulty'"
+    aria-label="AI difficulty">
+    <mat-radio-button class="select-player__radio-button" [value]="difficulty.easy">Easy</mat-radio-button>
+    <mat-radio-button class="select-player__radio-button" [value]="difficulty.medium">Medium</mat-radio-button>
+    <mat-radio-button class="select-player__radio-button" [value]="difficulty.hard">Hard</mat-radio-button>
+  </mat-radio-group>
+</div>

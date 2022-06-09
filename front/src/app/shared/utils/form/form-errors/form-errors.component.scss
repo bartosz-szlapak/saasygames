@@ -1,0 +1,17 @@
+.form-errors {
+  font-size: 0.75rem;
+
+  &__error {
+    margin-right: 0.3em;
+
+    &:after {
+      content: ',';
+    }
+
+    &:last-child {
+      &:after {
+        content: '';
+      }
+    }
+  }
+}

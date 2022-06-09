@@ -1,0 +1,23 @@
+<div class="my-lounge-body">
+  <app-application-error *ngIf="loungeError$ | async"></app-application-error>
+  <app-lounge-skeleton *ngIf="loungeLoading$ | async"></app-lounge-skeleton>
+
+  <ng-container *ngIf="loungeResponse$ | async as loungeResponse ">
+    <ng-container *ngIf="loungeResponse.items.length > 0; else emptyResults">
+      <app-lounge-match-list
+        [userId]="(jwt$ | async)?.userId"
+        [response]="loungeResponse"
+      ></app-lounge-match-list>
+      <app-paginator
+        (pageChange)="onPageChange($event)"
+        [page]="(activatedRoute.queryParams | async).page | pageNumber"
+        [totalPages]="loungeResponse | numberOfPages"
+      ></app-paginator>
+    </ng-container>
+
+    <ng-template #emptyResults>
+      <div>No results</div>
+    </ng-template>
+  </ng-container>
+
+</div>

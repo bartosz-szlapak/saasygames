@@ -1,0 +1,34 @@
+<form
+  [formGroup]="formGroup"
+  class="registration-form">
+  <mat-form-field appearance="outline">
+    <mat-label>User name</mat-label>
+    <input
+      [placeholder]="'User name'"
+      autocomplete="off"
+      formControlName="userName"
+      matInput
+      maxlength="128"
+      type="text">
+    <mat-error>
+      <app-form-errors
+        [control]="formGroup | getFormControl: 'userName'"
+        [messages]="validationMessages"
+      ></app-form-errors>
+    </mat-error>
+  </mat-form-field>
+
+  <app-create-user-password-input
+    [control]="formGroup | getFormControl:'password'"
+    [label]="'Password'"
+  ></app-create-user-password-input>
+
+  <button
+    [matButtonSpinner]="disabled"
+    [disabled]="disabled"
+    (click)="submit()"
+    mat-raised-button
+    type="submit"
+  >Create account
+  </button>
+</form>

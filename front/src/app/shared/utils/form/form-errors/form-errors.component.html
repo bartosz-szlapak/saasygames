@@ -1,0 +1,16 @@
+<span
+  *ngIf="control.touched && control.invalid"
+  class="form-errors">
+
+  <span
+    *ngIf="control.errors?.required; else allErrors"
+    class="mat-error form-errors__error "
+  >{{ (messages?.required ? messages.required : 'formErrors.required') | translate }}</span>
+
+  <ng-template #allErrors>
+    <span
+      *ngFor="let key of control.errors | formErrorsKeys"
+      class="mat-error form-errors__error"
+    >{{ messages ? (messages[key] | translate) : key }}</span>
+  </ng-template>
+</span>

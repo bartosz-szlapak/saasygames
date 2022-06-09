@@ -1,0 +1,15 @@
+<div class="my-users-body">
+  <app-application-error *ngIf="usersError$ | async"></app-application-error>
+  <app-users-skeleton *ngIf="usersLoading$ | async"></app-users-skeleton>
+
+  <ng-container *ngIf="usersResponse$ | async as users ">
+    <app-users-list
+      [usersResponse]="users"
+    ></app-users-list>
+    <app-paginator
+      (pageChange)="onPageChange($event)"
+      [page]="(activatedRoute.queryParams | async).page | pageNumber"
+      [totalPages]="users | numberOfPages"
+    ></app-paginator>
+  </ng-container>
+</div>

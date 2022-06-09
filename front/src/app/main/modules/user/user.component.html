@@ -1,0 +1,9 @@
+<h1>User</h1>
+<app-application-error *ngIf="isError$ | async"></app-application-error>
+
+<app-user-skeleton *ngIf="isLoading$ | async"></app-user-skeleton>
+
+<app-user-content
+  *ngIf="user$ | async as user"
+  [user]="user"
+></app-user-content>

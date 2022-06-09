@@ -1,0 +1,40 @@
+<form
+  [formGroup]="formGroup"
+  class="login-form">
+
+  <mat-form-field appearance="outline">
+    <mat-label class="login-form__label">User name</mat-label>
+    <input
+      [placeholder]="'User name'"
+      class="login-form__input"
+      formControlName="userName"
+      matInput
+      type="text">
+    <mat-error *ngIf="formGroup.get('userName')?.hasError('required')">Required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label class="login-form__label">Password</mat-label>
+    <input
+      [placeholder]="'Password'"
+      class="login-form__input"
+      formControlName="password"
+      matInput
+      [type]="passwordVisible ? 'text' : 'password'">
+    <mat-icon
+      (click)="passwordVisible = !passwordVisible"
+      matSuffix
+    >{{ passwordVisible ? 'visibility_off' : 'visibility'}}</mat-icon>
+    <mat-error *ngIf="formGroup.get('password')?.hasError('required')">Required</mat-error>
+  </mat-form-field>
+
+  <button
+    [disabled]="disabled"
+    type="submit"
+    (click)="onLogin()"
+    mat-raised-button
+    [matButtonSpinner]="disabled"
+  >Log in
+  </button>
+</form>
+

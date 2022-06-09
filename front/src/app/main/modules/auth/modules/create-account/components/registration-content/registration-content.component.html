@@ -1,0 +1,6 @@
+<h1>Create account</h1>
+
+<app-registration-form
+  [disabled]="userSaving$ | async"
+  (create)="onUserCreateByCredentials($event)"
+></app-registration-form>

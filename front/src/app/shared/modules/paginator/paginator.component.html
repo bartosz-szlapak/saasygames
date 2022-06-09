@@ -1,0 +1,19 @@
+<div
+  *ngIf="showPagination"
+  class="pagination">
+  <button
+    (click)="changePage(page - 1)"
+    [disabled]="prevButtonDisabled"
+    mat-button
+  >prev
+  </button>
+
+  <div><span>{{ page + 1 }}</span> <span> z {{ totalPages }}</span></div>
+
+  <button
+    (click)="changePage(page + 1)"
+    [disabled]="nextButtonDisabled"
+    mat-button
+  >next
+  </button>
+</div>

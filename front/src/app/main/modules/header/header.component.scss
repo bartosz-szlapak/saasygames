@@ -1,0 +1,17 @@
+.header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #2f323c;
+  color: #adb7be;
+  height: 80px;
+
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+
+  &__prices {
+    margin-right: 20px;
+  }
+}

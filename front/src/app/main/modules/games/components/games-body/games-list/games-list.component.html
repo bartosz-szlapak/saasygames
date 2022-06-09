@@ -1,0 +1,15 @@
+<div class="games-list">
+  <div
+    class="games-list__header">
+    <div>#</div>
+    <div>Name</div>
+  </div>
+  <div class="games-list__body">
+    <div
+      *ngFor="let game of response.items; let i = index"
+      class="games-list__body-game">
+      <div>{{ response.offset + i + 1 }}</div>
+      <div routerLink="{{ game.id }}">{{ game.name }}</div>
+    </div>
+  </div>
+</div>

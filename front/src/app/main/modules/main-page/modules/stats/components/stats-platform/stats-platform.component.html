@@ -1,0 +1,8 @@
+<div class="my-stats-body">
+
+  <div *ngIf="platformStats$ | async as platformStats">
+    <div>Total platform games played: {{ platformStats.totalMatches }}</div>
+    <div>Total ongoing platform games: {{ platformStats.ongoingMatches }}</div>
+  </div>
+
+</div>

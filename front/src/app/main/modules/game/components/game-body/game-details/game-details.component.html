@@ -1,0 +1,24 @@
+<h2>{{ game.name }}</h2>
+
+<h3>Players</h3>
+<div>
+  <div *ngIf="jwt">
+    <div>Player 1: {{ jwt.userName }}</div>
+  </div>
+
+  <ng-container *ngFor="let form of playersForms; let i = index">
+    <div>Player {{ i + 2 }}:</div>
+    <app-game-details-select-player
+      [formGroup]="form"
+    ></app-game-details-select-player>
+  </ng-container>
+</div>
+
+<div>
+  <button
+    mat-raised-button
+    (click)="startGame()"
+  >Start game
+  </button>
+
+</div>

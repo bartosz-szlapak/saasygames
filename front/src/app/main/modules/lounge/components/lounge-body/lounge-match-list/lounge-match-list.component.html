@@ -1,0 +1,39 @@
+<div class="lounge-list">
+  <div
+    class="lounge-list__header">
+    <div>#</div>
+    <div>Name</div>
+    <div></div>
+  </div>
+  <div class="lounge-list__body">
+    <div
+      *ngFor="let match of response.items; let i = index"
+      class="lounge-list__body-match">
+      <div>{{ response.offset + i + 1 }}</div>
+      <div>{{ match.game.name }}</div>
+      <div>
+        <button
+          mat-raised-button
+          *ngIf="match | isMatchParticipant:userId; else otherActions"
+          [routerLink]="'/matches/' + match.id"
+        >Continue match
+        </button>
+
+        <ng-template #otherActions>
+          <button
+            mat-raised-button
+            (click)="join(match.id)"
+          >Join as player
+          </button>
+
+          <button
+            mat-raised-button
+            [routerLink]="'/matches/' + match.id"
+          >Spectate
+          </button>
+        </ng-template>
+
+      </div>
+    </div>
+  </div>
+</div>

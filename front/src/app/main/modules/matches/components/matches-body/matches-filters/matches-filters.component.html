@@ -1,0 +1,9 @@
+<mat-form-field appearance="fill">
+  <mat-label>User name</mat-label>
+  <input
+    [formControl]="control"
+    (ngModelChange)="test($event)"
+    matInput
+    placeholder="User name"
+    [value]="userName">
+</mat-form-field>

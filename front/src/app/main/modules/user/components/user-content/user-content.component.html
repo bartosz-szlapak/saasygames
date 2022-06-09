@@ -1,0 +1,24 @@
+<div class="user-content">
+  <div>Id</div>
+  <div>{{ user.id }}</div>
+
+  <div>Name</div>
+  <div>{{ user.userName }}</div>
+
+  <div>Role</div>
+  <div>{{ user.roleId | getRole }}</div>
+
+  <div>Status</div>
+  <div>{{ user.statusId | getUserStatus }}</div>
+
+  <div>
+    <button
+      *ngIf="user.statusId === userStatusEnum.active"
+      mat-raised-button
+      (click)="ban(user.id)"
+    >Ban user
+    </button>
+
+  </div>
+</div>
+

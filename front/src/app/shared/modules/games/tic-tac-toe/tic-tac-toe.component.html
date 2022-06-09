@@ -1,0 +1,27 @@
+<div>
+  <span>Match status: </span>
+  <ng-container *ngIf="matchStatusId === matchStatusEnum.finished">finished</ng-container>
+  <ng-container *ngIf="matchStatusId === matchStatusEnum.inProgress">in progress</ng-container>
+  <ng-container *ngIf="matchStatusId === matchStatusEnum.pending">pending</ng-container>
+  <ng-container *ngIf="matchStatusId === matchStatusEnum.cancelled">cancelled</ng-container>
+</div>
+
+<div *ngIf="playersTurn && matchStatusId === matchStatusEnum.inProgress">Player's turn: {{ playersTurn }}</div>
+<div *ngIf="winnerName && matchStatusId === matchStatusEnum.finished">Winner: {{ winnerName }}</div>
+
+<div *ngIf="state">
+  <div class="board">
+    <div
+      [ngClass]="{'board__field--disabled': field.isOccupied || matchStatusId !== matchStatusEnum.inProgress || isSpectator, 'board__field--winner': field.isMarkedAsWin}"
+      class="board__field"
+      (click)="makeMove(field)"
+      *ngFor="let field of state.board">
+      <span
+        class="material-icons"
+        *ngIf="field.isOccupied">
+        {{ getBoardPlayerSymbol(field.playerId) }}
+      </span>
+
+    </div>
+  </div>
+</div>

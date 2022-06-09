@@ -1,0 +1,7 @@
+<app-tic-tac-toe
+  [match]="match"
+  [userId]="decodedJwt?.userId"
+  [state]="gameState$ | async"
+  (move)="moved($event)"
+  [playerId]="playerId"
+></app-tic-tac-toe>

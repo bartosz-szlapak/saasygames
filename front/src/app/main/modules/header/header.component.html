@@ -1,0 +1,6 @@
+<nav class="header-nav">
+  <a routerLink="/">Sassy games</a>
+  <app-header-auth
+    [isLogged]="isLogged$ | async"
+  ></app-header-auth>
+</nav>

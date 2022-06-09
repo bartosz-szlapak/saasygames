@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  mysql8:
+    container_name: mysql8
+    build:
+      context: ./
+      dockerfile: mysql/mysql.dockerfile
+    restart: always
+    ports:
+      - 127.0.0.1:3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+    volumes:
+      - sassygames_mysql_data:/var/lib/mysql
+    networks:
+      - mynetwork
+volumes:
+  sassygames_mysql_data:
+
+networks:
+  mynetwork:
+    driver: bridge

@@ -1,0 +1,16 @@
+.col-template {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.users-list {
+
+  &__header {
+    @extend .col-template;
+  }
+
+  &__body-product {
+    @extend .col-template;
+    grid-row-gap: 12px;
+  }
+}
